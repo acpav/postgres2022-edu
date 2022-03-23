@@ -70,8 +70,8 @@ Postgres стартует
 > psql (14.2 (Ubuntu 14.2-1.pgdg20.04+1))  
 > Type "help" for help.  
 >  
-> \ postgres=# select * from test;  
-> \ c1  
+>    postgres=# select * from test;  
+>    c1  
 > ----  
 > 1  
 > 1  
