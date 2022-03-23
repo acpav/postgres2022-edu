@@ -53,6 +53,8 @@ Postgres стартует
 > Ver Cluster Port Status Owner    Data directory    Log file  
 > 14  main    5432 online postgres /mnt/data/14/main /var/log/postgresql/postgresql-14-main.log  
 
+Проверяю, что данные на месте  
+
 Останавливаю инстанс **postgers-edu06**  
 Создаю новый под именем **postgers-edu06-2**  
 
@@ -68,8 +70,8 @@ Postgres стартует
 > psql (14.2 (Ubuntu 14.2-1.pgdg20.04+1))  
 > Type "help" for help.  
 >  
-> <pre>postgres=# select * from test;</pre>  
-> c1   
+> \ postgres=# select * from test;  
+> \ c1  
 > ----  
 > 1  
 > 1  
