@@ -25,33 +25,33 @@
 Вижу, что postgres не стартовал  
 
 > acpavel@postgers-edu06:~$ sudo -u postgres pg_lsclusters 
-> Ver Cluster Port Status Owner     Data directory              Log file
+> Ver Cluster Port Status Owner     Data directory              Log file  
 > 14  main    5432 down   <unknown> /var/lib/postgresql/14/main /var/log/postgresql/postgresql-14-main.lo  
 
 Смотрю статус службы **sudo systemctl status postgresql@14-main.service**
 
-> ● postgresql@14-main.service - PostgreSQL Cluster 14-main
->     Loaded: loaded (/lib/systemd/system/postgresql@.service; enabled-runtime; vendor preset: enabled)
->     Active: failed (Result: protocol) since Wed 2022-03-23 13:55:53 UTC; 7min ago
->    Process: 977 ExecStart=/usr/bin/pg_ctlcluster --skip-systemctl-redirect 14-main start (code=exited, status=1/FAILURE)
+> ● postgresql@14-main.service - PostgreSQL Cluster 14-main  
+>     Loaded: loaded (/lib/systemd/system/postgresql@.service; enabled-runtime; vendor preset: enabled)  
+>     Active: failed (Result: protocol) since Wed 2022-03-23 13:55:53 UTC; 7min ago  
+>    Process: 977 ExecStart=/usr/bin/pg_ctlcluster --skip-systemctl-redirect 14-main start (code=exited, status=1/FAILURE)  
 
-> Mar 23 13:55:53 postgers-edu06 systemd[1]: Starting PostgreSQL Cluster 14-main...
-> Mar 23 13:55:53 postgers-edu06 postgresql@14-main[977]: Error: /var/lib/postgresql/14/main is not accessible or does not exist
-> Mar 23 13:55:53 postgers-edu06 systemd[1]: postgresql@14-main.service: Can't open PID file /run/postgresql/14-main.pid (yet?) after start: Operation not per>
-> Mar 23 13:55:53 postgers-edu06 systemd[1]: postgresql@14-main.service: Failed with result 'protocol'.
+> Mar 23 13:55:53 postgers-edu06 systemd[1]: Starting PostgreSQL Cluster 14-main...  
+> Mar 23 13:55:53 postgers-edu06 postgresql@14-main[977]: Error: /var/lib/postgresql/14/main is not accessible or does not exist  
+> Mar 23 13:55:53 postgers-edu06 systemd[1]: postgresql@14-main.service: Can't open PID file /run/postgresql/14-main.pid (yet?) after start: Operation not per>  
+> Mar 23 13:55:53 postgers-edu06 systemd[1]: postgresql@14-main.service: Failed with result 'protocol'.  
 > Mar 23 13:55:53 postgers-edu06 systemd[1]: Failed to start PostgreSQL Cluster 14-main.  
 
 Вижу ошибку **Error: /var/lib/postgresql/14/main is not accessible or does not exist**  
 
 Меняю строчку в **postgresql.conf** (**sudo vi /etc/postgresql/14/main/postgresql.conf**)
-> data_directory = '/var/lib/postgresql/14/main'          # use data in another directory
+> data_directory = '/var/lib/postgresql/14/main'          # use data in another directory  
 на  
 > data_directory = '/mnt/data/14/main'          # use data in another directory  
 
 Postgres стартует  
-> acpavel@postgers-edu06:~$ sudo -u postgres pg_lsclusters 
-> Ver Cluster Port Status Owner    Data directory    Log file
-> 14  main    5432 online postgres /mnt/data/14/main /var/log/postgresql/postgresql-14-main.log
+> acpavel@postgers-edu06:~$ sudo -u postgres pg_lsclusters  
+> Ver Cluster Port Status Owner    Data directory    Log file  
+> 14  main    5432 online postgres /mnt/data/14/main /var/log/postgresql/postgresql-14-main.log  
 
 Останавливаю инстанс **postgers-edu06**  
 Создаю новый под именем **postgers-edu06-2**  
@@ -64,13 +64,13 @@ Postgres стартует
 
 После перезагрузки на инстансе **postgers-edu06-2** проверяю что данные добавленные на инстансе **postgers-edu06** на месте  
 
-> acpavel@postgres-edu06-2:~$ sudo -u postgres psql
-> psql (14.2 (Ubuntu 14.2-1.pgdg20.04+1))
-> Type "help" for help.
-> 
-> postgres=# select * from test;
- > c1 
-> ----
- > 1
- > 1
-> (2 rows)
+> acpavel@postgres-edu06-2:~$ sudo -u postgres psql  
+> psql (14.2 (Ubuntu 14.2-1.pgdg20.04+1))  
+> Type "help" for help.  
+>  
+> postgres=# select * from test;  
+ > c1   
+> ----  
+ > 1  
+ > 1  
+> (2 rows)  
