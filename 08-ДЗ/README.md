@@ -8,7 +8,7 @@
 
 Значения за последние 10 минут  
 
-<dev>
+<code>
 progress: 3000.0 s, 503.2 tps, lat 15.862 ms stddev 13.391  
 progress: 3060.0 s, 444.9 tps, lat 17.956 ms stddev 16.908  
 progress: 3120.0 s, 560.9 tps, lat 14.232 ms stddev 12.255  
@@ -31,11 +31,12 @@ latency average = 15.308 ms
 latency stddev = 14.867 ms  
 tps = 521.518793 (including connections establishing)  
 tps = 521.519093 (excluding connections establishing)  
-</dev>
+</code>
 
 Был на следующий день, после перезапуска сервера  
 Применил настройки  
-<dev>
+
+<code>
 autovacuum = on  
 log_autovacuum_min_duration = -1  
 autovacuum_max_workers = 2  --На инстансе всего 2 ядра, больше 2-х воркеров нет смысла делать
@@ -73,4 +74,4 @@ latency average = 15.073 ms
 latency stddev = 13.747 ms  
 tps = 529.724640 (including connections establishing)  
 tps = 529.724994 (excluding connections establishing) 
-</dev>
+</code>
