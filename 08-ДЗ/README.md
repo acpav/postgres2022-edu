@@ -31,7 +31,7 @@ progress: 3540.0 s, 562.1 tps, lat 14.197 ms stddev 12.161
 
 progress: 3600.0 s, 503.9 tps, lat 15.846 ms stddev 14.096  
 
-transaction type: <builtin: TPC-B (sort of)>  
+transaction type:  
 
 scaling factor: 1  
 
@@ -105,7 +105,7 @@ progress: 3540.0 s, 524.1 tps, lat 15.233 ms stddev 13.099
 
 progress: 3600.0 s, 537.1 tps, lat 14.864 ms stddev 12.816  
 
-transaction type: <builtin: TPC-B (sort of)>  
+transaction type:  
 
 scaling factor: 1  
 
