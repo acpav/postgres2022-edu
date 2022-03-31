@@ -8,7 +8,6 @@
 
 Значения за последние 10 минут  
 
-<code>
 progress: 3000.0 s, 503.2 tps, lat 15.862 ms stddev 13.391  
 
 progress: 3060.0 s, 444.9 tps, lat 17.956 ms stddev 16.908  
@@ -52,12 +51,10 @@ latency stddev = 14.867 ms
 tps = 521.518793 (including connections establishing)  
 
 tps = 521.519093 (excluding connections establishing)  
-</code>
 
 Был на следующий день, после перезапуска сервера  
 Применил настройки  
 
-<code>
 autovacuum = on  
 
 log_autovacuum_min_duration = -1  
@@ -79,10 +76,10 @@ autovacuum_analyze_scale_factor = 0.05
 autovacuum_vacuum_cost_delay = 20  
 
 autovacuum_vacuum_cost_limit = 5000  
-</code>
 
 Значения за посление 10 минут  
-<code>
+
+
 progress: 3000.0 s, 487.8 tps, lat 16.367 ms stddev 14.325  
 
 progress: 3060.0 s, 565.3 tps, lat 14.126 ms stddev 12.503  
@@ -126,5 +123,3 @@ latency stddev = 13.747 ms
 tps = 529.724640 (including connections establishing)  
 
 tps = 529.724994 (excluding connections establishing)  
-
-</code>
