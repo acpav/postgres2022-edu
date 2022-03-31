@@ -48,10 +48,10 @@ autovacuum_vacuum_scale_factor = 0.05
 autovacuum_analyze_scale_factor = 0.05  
 autovacuum_vacuum_cost_delay = 20  
 autovacuum_vacuum_cost_limit = 5000  
-</dev>
+</code>
 
 Значения за посление 10 минут  
-<dev>
+<code>
 progress: 3000.0 s, 487.8 tps, lat 16.367 ms stddev 14.325  
 progress: 3060.0 s, 565.3 tps, lat 14.126 ms stddev 12.503  
 progress: 3120.0 s, 607.6 tps, lat 13.136 ms stddev 11.224  
