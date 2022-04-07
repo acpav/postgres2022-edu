@@ -30,6 +30,9 @@
 Соединение 12207 пыталось заблокировать версию строки, но не смогло(granted = f), потому что уже наложена блокировка в режиме Exclusive. 
 
 3.
+
+Записи в журнале при взаимоблокировках трех транзакций
+
     2022-04-07 11:37:38.160 UTC [19285] postgres@testdb STATEMENT:  update testtab set id = id + 4 where id = 1;
     2022-04-07 11:37:44.473 UTC [19286] postgres@testdb LOG:  process 19286 detected deadlock while waiting for ShareLock on transaction 541 after 200.133 ms
     2022-04-07 11:37:44.473 UTC [19286] postgres@testdb DETAIL:  Process holding the lock: 19285. Wait queue: .
