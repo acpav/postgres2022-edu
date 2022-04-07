@@ -51,15 +51,18 @@
     2022-04-07 11:37:44.473 UTC [19283] postgres@testdb LOG:  process 19283 acquired ShareLock on transaction 542 after 15986.111 ms
     2022-04-07 11:37:44.473 UTC [19283] postgres@testdb CONTEXT:  while updating tuple (0,3) in relation "test
 
-Мы видим что блокировка длится больше больше 200 ms
+Мы видим что блокировка длится больше больше 200 ms  
+
     2022-04-07 11:37:44.473 UTC [19286] postgres@testdb LOG:  process 19286 detected deadlock while waiting for ShareLock on transaction 541 after 200.133 ms
 
-Видим ошибку deadlock detected
+Видим ошибку deadlock detected  
+
     2022-04-07 11:37:44.473 UTC [19286] postgres@testdb ERROR:  deadlock detected
 
 Видим что сеанс 19286 ждет 19285, 19285 ждет 19283, а 19283 ждет первый сеанс 19286.
 
-Видим текст запросов для каждого сеанса из взаимоблокировки.
+Видим текст запросов для каждого сеанса из взаимоблокировки.  
+
     Process 19286: update testtab set id = id + 4 where id = 2;
 
 4.
