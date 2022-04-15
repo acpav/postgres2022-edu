@@ -13,7 +13,7 @@
 
     sudo -u postgres ./tpcc.lua prepare --pgsql-user=sbtest --pgsql-password=123 --pgsql-db=sbtest --time=120 --threads=2 --report-interval=1 --tables=5 --scale=5 --use_fk=0 --trx_level=RC --db-driver=pgsql
 
-Запуск нагрузочного тестирования с праметрами по умолчанию  
+Запуск нагрузочного тестирования с праметрами postgres по умолчанию в 20 потоков
 
     sudo -u postgres ./tpcc.lua --pgsql-user=sbtest --pgsql-password=123 --pgsql-db=sbtest --time=1200 --threads=20 --report-interval=60 --tables=5 --scale=5 --use_fk=0 --trx_level=RC --db-driver=pgsql run
 
