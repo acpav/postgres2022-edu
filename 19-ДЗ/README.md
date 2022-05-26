@@ -3,7 +3,7 @@
 
 Используется БД demo https://edu.postgrespro.ru/demo-medium.zip
 
-1. Запрос  
+#### Запрос  
 
     select
         f.flight_no,
@@ -56,13 +56,11 @@
                                         ->  Hash  (cost=1448.64..1448.64 rows=65664 width=11)                                              
                                                 ->  Seq Scan on flights f  (cost=0.00..1448.64 rows=65664 width=11)                          
 
-Создаем индекс на класс места в самолете  
+#### Создаем индекс на класс места в самолете  
 
     create index ticket_flights_fare_conditions_idx on ticket_flights (fare_conditions);
 
-2.
-
-План запроса после создания индекса  
+#### План запроса после создания индекса  
 
     QUERY PLAN                                                                                                                                                                   
     -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -93,7 +91,7 @@
     ->  Parallel Index Scan using ticket_flights_fare_conditions_idx on ticket_flights tf  (cost=0.43..23336.76 rows=100740 width=24)
         Index Cond: ((fare_conditions)::text = 'Business'::text)                                                                   
 
-3. Создаем индекс для полнотекстового поиска  
+#### Создаем индекс для полнотекстового поиска  
 
     create index passenger_name_gin on tickets using gin (to_tsvector('english', passenger_name));
 
@@ -108,7 +106,7 @@
     where t.passenger_name @@ to_tsquery('english', 'VLADIMIR')
     limit 10;
 
-4. Создаем частичный индекс  
+#### Создаем частичный индекс  
 
     create index ticket_flights_amount_idx on ticket_flights (amount) where fare_conditions <> 'Economy'; 
 
@@ -124,7 +122,7 @@
 
 **Index Scan using ticket_flights_amount_idx on ticket_flights**  
 
-5. Создаем составной индекс  
+#### Создаем составной индекс  
 
     create index aircrafts_data_aircraft_code_range_idx on aircrafts_data (aircraft_code, range);
 
