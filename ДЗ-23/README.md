@@ -101,7 +101,7 @@
 
     update sales set good_id = 3 where sales_id = 10;
 
---Очищяю таблицу  
+--Очищаю таблицу  
 
     truncate sales ;
 
